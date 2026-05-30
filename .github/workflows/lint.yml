@@ -1,0 +1,57 @@
+name: lint
+
+on:
+  pull_request:
+    paths:
+      - "**/*.md"
+      - ".github/workflows/lint.yml"
+      - "mado.toml"
+      - ".codespellrc"
+  push:
+    branches: [main]
+    paths:
+      - "**/*.md"
+      - ".github/workflows/lint.yml"
+      - "mado.toml"
+      - ".codespellrc"
+  schedule:
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  markdown:
+    name: markdown (mado)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: akiomik/mado@9b5cb3a1d234ddbacad4dd811aaa2a1e671d5306 # v0.3.0
+
+  spelling:
+    name: spelling (codespell)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: codespell-project/actions-codespell@8f01853be192eb0f849a5c7d721450e7a467c579 # v2.2
+        with:
+          check_filenames: true
+          check_hidden: false
+
+  links:
+    name: links (lychee)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
+        with:
+          args: --no-progress --verbose --max-concurrency 4 './**/*.md'
+          fail: true
+
+  mermaid:
+    name: mermaid render
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: sgerrand/mermaid-validation-action@ceeb8827dfa30af4e0f22f92ab96a4ce5ac7ef5f # v0.1.0
