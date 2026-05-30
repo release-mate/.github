@@ -1,11 +1,11 @@
 [lint]
 rules = [
   "MD001", "MD003", "MD004", "MD005", "MD007", "MD009", "MD010",
-  "MD011", "MD012", "MD014", "MD018", "MD019", "MD020", "MD021",
-  "MD022", "MD023", "MD025", "MD026", "MD027", "MD028", "MD029",
-  "MD030", "MD031", "MD032", "MD033", "MD034", "MD035", "MD036",
-  "MD037", "MD038", "MD039", "MD040", "MD041", "MD042", "MD046",
-  "MD047", "MD048", "MD049", "MD050", "MD051", "MD052", "MD053",
+  "MD012", "MD013", "MD014", "MD018", "MD019", "MD020", "MD021",
+  "MD022", "MD023", "MD024", "MD025", "MD026", "MD027", "MD028",
+  "MD029", "MD030", "MD031", "MD032", "MD033", "MD034", "MD035",
+  "MD036", "MD037", "MD038", "MD039", "MD040", "MD041", "MD046",
+  "MD047",
 ]
 
 [lint.md013]
@@ -13,8 +13,8 @@ line_length = 100
 code_blocks = false
 tables = false
 
-[lint.md024]
-allow_different_nesting = true
+[lint.md029]
+style = "ordered"
 
-[lint.md033]
-allowed_elements = []
+[lint.md007]
+indent = 3
