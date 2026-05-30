@@ -1,0 +1,3 @@
+# Ignore local coding agent configuration files.
+/.claude/
+/.codex/
