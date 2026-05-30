@@ -1,4 +1,3 @@
 [codespell]
 skip = .git,*.svg,*.lock
 check-hidden = false
-ignore-words-list =
