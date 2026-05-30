@@ -1,0 +1,20 @@
+pre-commit:
+  parallel: true
+  commands:
+    mado:
+      glob: "*.md"
+      run: mado check {staged_files}
+      stage_fixed: false
+    codespell:
+      run: codespell {staged_files}
+      stage_fixed: false
+
+commit-msg:
+  commands:
+    committed:
+      run: committed --commit-file {1}
+
+pre-push:
+  commands:
+    committed-range:
+      run: committed origin/main..HEAD
