@@ -62,4 +62,4 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
-      - uses: sgerrand/mermaid-validation-action@ceeb8827dfa30af4e0f22f92ab96a4ce5ac7ef5f # v0.1.0
+      - uses: sgerrand/mermaid-validation-action@31f8eed257dbbbadad3332c83694866903e92b0e # v0.2.0
